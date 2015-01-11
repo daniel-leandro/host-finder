@@ -1,6 +1,6 @@
 <?php
 
-$hostname = "facebook.com";
+$hostname = $_GET["hostname"];
 $dns_records = dns_get_record($hostname, DNS_NS);
 
 $resp = array(
@@ -29,8 +29,6 @@ if ($dns_records == FALSE) {
     $resp["nameservers"] = $nameservers;
 }
 echo json_encode($resp);
-
-
 
 function host_by_nameserver() {
     $hosts = array();
